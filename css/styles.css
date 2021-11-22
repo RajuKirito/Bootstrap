@@ -31,3 +31,11 @@ body{
 .navbar-dark{
     background-color: #512DA8;
 }
+
+.formhead{
+    background-color: #FDC134;
+    color: white;
+    margin:0px;
+    padding:10px 20px 8px 20px;
+    border-radius: 2px;
+}
