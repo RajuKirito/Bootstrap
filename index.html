@@ -218,14 +218,9 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
-                    <div class='btn-group' id ='carouselButton'>
-                        <button class = 'btn btn-danger btn-sm' id ='carousel-pause'>
-                            <span class = 'fa fa-pause'></span>
-                        </button>
-                        <button class = 'btn btn-danger btn-sm' id ='carousel-play'>
-                            <span class = 'fa fa-play'></span>
-                        </button>
-                     </div>
+                    <button class = 'btn btn-danger btn-sm' id ='carouselButton'>
+                        <span class = 'fa fa-pause'></span>
+                    </button>
                 </div>
              </div>
         </div>
@@ -275,75 +270,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class = 'row row-content' id = 'form'>
-            <div class = 'col-12 col-sm-8 offset-sm-2'>
-                <div class = 'card'>
-                    <div class = 'formhead'>
-                        <h3>Reserve a Table</h3>
-                    </div>
-                    <div class = 'card-body'>
-                        <form action="">
-                            <div class = 'form-group row'>
-                                <div class = 'col-12 col-sm-2'>
-                                    <label for="guests" class ='col-form-label'>Number of Guests</label>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '1' name = 'guests'>
-                                        <label class = 'form-check-label' for="1">1</label>
-                                    </div>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '2' name = 'guests'>
-                                        <label class = 'form-check-label' for="2">2</label>
-                                    </div>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '3' name = 'guests'>
-                                        <label class = 'form-check-label' for="3">3</label>
-                                    </div>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '4' name = 'guests'>
-                                        <label class = 'form-check-label' for="4">4</label>
-                                    </div>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '5' name = 'guests'>
-                                        <label class = 'form-check-label' for="5">5</label>
-                                    </div>
-                                </div>
-                                <div class = 'col-1'>
-                                    <div class = 'form-check-inline'>
-                                        <input class = 'form-check-input' type="radio" id = '6' name = 'guests'>
-                                        <label class = 'form-check-label' for="6">6</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class ='row form-group'>
-                                <div class ='col-12 col-sm-2'>
-                                    <label for="dandt">Date and Time</label>
-                                </div>
-                                <div class = 'col-12 col-sm-4'>
-                                    <input class = 'form-control' type="text" id = 'date' name = 'dandt' placeholder="Date">
-                                </div>
-                                <div class = 'col-12  col-sm-4'>
-                                    <input class = 'form-control' type="text" id = 'time' name = 'dandt' placeholder = "Time">
-                                </div>
-                            </div>
-                            <div class = 'offset-sm-2'>
-                                <button type="button" class="btn btn-primary">Reserve</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
 
     <footer>
@@ -391,21 +317,22 @@
  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
- <!-- <script>
-     $(document).ready(function(){
-            $('[data-toggle = "tooltip"]').tooltip();
-            
-     });
-     
- </script> -->
+
  <script>
      $(document).ready(function(){
          $('#mycarousel').carousel({interval:1000});
-         $('#carousel-pause').click(function(){
-             $('#mycarousel').carousel('pause');
-         });
-         $('#carousel-play').click(function(){
-             $('#mycarousel').carousel('cycle');
+         $('#carouselButton').click(function(){
+             if($('#carouselButton').children('span').hasClass('fa-pause')){
+                $('#mycarousel').carousel('pause');
+                $('#carouselButton').children('span').removeClass('fa-pause');
+                $('#carouselButton').children('span').addClass('fa-play');
+             }
+             else if($('#carouselButton').children('span').hasClass('fa-play')){
+                $('#mycarousel').carousel('cycle');
+                $('#carouselButton').children('span').removeClass('fa-play');
+                $('#carouselButton').children('span').addClass('fa-pause');
+             }
+            
          });
      });
  </script> 
